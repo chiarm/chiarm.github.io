@@ -1,0 +1,64 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Contacto</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="historia.html">Historia</a></li>
+                <li><a href="tradiciones.html">Tradiciones</a></li>
+                <li><a href="datosEstadisticos.html">Datos Estadísticos</a></li>
+                <li><a href="informacionTuristica.html">Información Turística</a></li>
+                <li><a href="contenidoMultimedia.html">Contenido Multimedia</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Formulario de Contacto</h2>
+            <form action="#" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required><br>
+
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required><br>
+
+                <label for="mensaje">Mensaje:</label><br>
+                <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea><br>
+
+                <label class="inline-label">
+				<input type="checkbox" name="suscribir"> Suscribirme al boletín</label><br>
+				
+                <p>¿Te ha servido nuestra información?</p>
+				<div class="inline-label">
+				<input type="radio" id="si" name="tipo" value="si"><label for="si">Si</label></div>
+				
+				<div class="inline-label">
+				<input type="radio" id="no" name="tipo" value="no"><label for="no">no</label></div>
+
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" name="categoria">
+                    <option value="general">General</option>
+                    <option value="turismo">Turismo</option>
+                    <option value="negocios">Negocios</option>
+                </select><br>
+
+                <button type="submit">Enviar</button>
+                <button type="reset">Borrar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>2025 Badajoz - Extremadura. Adrian ramos marquez</p>
+    </footer>
+</body>
+</html>
