@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #0d1117;
   --card: #161b22;
   --border: #30363d;
@@ -159,19 +159,13 @@ ul.contact li { margin-bottom: 5px; }
 .card-title { font-size: 14px; margin: 0 0 10px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
 .card-title + p { margin: 0; font-size: 13px; }
 .col-right .card img { width: 100%; height: auto; display: block; }
-.views { text-align: center; }
-.card.views {
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  padding: 0;
-  margin-bottom: 8px;
-}
-.col-right .card.views img {
+.views { text-align: center; margin-top: 12px; }
+.views img {
   width: auto;
   max-width: 100%;
   height: 17px;
-  margin: 0 auto;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* ---------- Pie ---------- */
