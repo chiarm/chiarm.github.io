@@ -5,8 +5,8 @@
   var langLabel = document.getElementById("lang-label");
 
   var titles = {
-    es: "Adrián Ramos Márquez · Desarrollador Full Stack",
-    en: "Adrián Ramos Márquez · Full Stack Developer"
+    es: "Adrián Ramos Márquez · Desarrollador backend con base Full Stack",
+    en: "Adrián Ramos Márquez · Backend developer with Full Stack base"
   };
 
   function theme() {
@@ -36,7 +36,9 @@
     langBtn.setAttribute("aria-label", switchTo);
     langBtn.title = switchTo;
     themeBtn.title = theme() === "light" ? "Cambiar a tema oscuro" : "Cambiar a tema claro";
-    document.title = titles[current];
+    var titleEs = root.getAttribute("data-title-es") || titles.es;
+    var titleEn = root.getAttribute("data-title-en") || titles.en;
+    document.title = current === "es" ? titleEs : titleEn;
   }
 
   themeBtn.addEventListener("click", function () {

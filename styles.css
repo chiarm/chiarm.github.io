@@ -138,6 +138,56 @@ html[data-lang="en"] .lang[lang="es"] { display: none; }
   border-radius: 6px;
 }
 
+/* ---------- Buscador de proyectos ---------- */
+.project-search { margin-bottom: 18px; }
+.project-search label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.project-search input[type="search"] {
+  width: 100%;
+  max-width: 100%;
+  padding: 5px 12px 5px 34px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='%238b949e'%3E%3Cpath d='M10.68 11.74a6 6 0 0 1-7.92-8.98 6 6 0 0 1 8.98 7.92l3.04 3.04a.75.75 0 1 1-1.06 1.06l-3.04-3.04ZM1.5 6a4.5 4.5 0 1 0 9 0 4.5 4.5 0 0 0-9 0Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 16px 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.project-search input[type="search"]::placeholder { color: var(--muted); }
+.project-search input[type="search"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(56, 139, 253, .3);
+}
+html[data-theme="light"] .project-search input[type="search"]:focus {
+  box-shadow: 0 0 0 3px rgba(9, 105, 218, .3);
+}
+.project-search input[type="search"]::-webkit-search-cancel-button { cursor: pointer; }
+
+.muted { color: var(--muted); font-size: 13px; }
+
+.repo {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  background: var(--card);
+}
+.repo h3 { font-size: 15px; margin: 0 0 8px; }
+.repo h3 a { font-weight: 600; }
+.repo p { margin: 0 0 8px; }
+.repo .tags { color: var(--muted); font-size: 13px; }
+
 .project {
   border: 1px solid var(--border);
   border-radius: 10px;
