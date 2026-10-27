@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://chiarm.github.io/repos.html">
 <meta property="og:image" content="https://chiarm.github.io/assets/avatar.png">
 <link rel="icon" href="assets/avatar.png">
-<link rel="stylesheet" href="styles.css?v=7">
+<link rel="stylesheet" href="styles.css?v=8">
 <script>
 (function () {
   var t = localStorage.getItem("theme");
@@ -108,8 +108,14 @@
         <div class="lang" lang="es"><h2>Repositorios</h2></div>
         <div class="lang" lang="en"><h2>Repositories</h2></div>
 
-        <div class="project-search">
-          <input id="repo-search" type="search" placeholder="Buscar / Search" autocomplete="off">
+        <div class="repo-toolbar">
+          <div class="project-search">
+            <input id="repo-search" type="search" placeholder="Buscar / Search" autocomplete="off">
+          </div>
+          <button id="repo-refresh" type="button" class="repo-refresh-btn" title="Actualizar">
+            <span class="lang" lang="es">Actualizar</span>
+            <span class="lang" lang="en">Refresh</span>
+          </button>
         </div>
 
         <div id="repos-list">
@@ -222,7 +228,7 @@
       var cached = sessionStorage.getItem('repos_cache');
       if (cached) {
         var obj = JSON.parse(cached);
-        if (obj && obj.t && (Date.now() - obj.t) < 5 * 60 * 1000 && Array.isArray(obj.data)) {
+        if (obj && obj.t && (Date.now() - obj.t) < 1 * 60 * 1000 && Array.isArray(obj.data)) {
           repos = obj.data;
           render();
           setPlaceholder();
@@ -231,7 +237,7 @@
       }
     } catch (e) {}
     list.innerHTML = '<p class="muted"><span class="lang" lang="es">Cargando repositorios…</span><span class="lang" lang="en">Loading repositories…</span></p>';
-    fetch('https://api.github.com/users/chiarm/repos?per_page=100&sort=updated', { headers: { 'Accept': 'application/vnd.github+json' } })
+    fetch('https://api.github.com/users/chiarm/repos?per_page=100&sort=updated', { headers: { 'Accept': 'application/vnd.github+json' }, cache: 'no-store' })
       .then(function (res) {
         if (!res.ok) throw new Error('HTTP ' + res.status);
         return res.json();
@@ -248,6 +254,14 @@
       });
   }
   input.addEventListener('input', render);
+  var refreshBtn = document.getElementById('repo-refresh');
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', function () {
+      try { sessionStorage.removeItem('repos_cache'); } catch (e) {}
+      repos = [];
+      load();
+    });
+  }
   setPlaceholder();
   load();
   var observer = new MutationObserver(function (mutations) {

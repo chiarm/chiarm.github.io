@@ -134,9 +134,36 @@ html[data-lang="en"] .lang[lang="es"] { display: none; }
   max-width: 600px;
   height: auto;
   display: block;
-  margin: 0 0 12px;
+  margin: 0 auto 12px;
   border-radius: 6px;
 }
+
+/* ---------- Barra de herramientas (buscador + actualizar) ---------- */
+.repo-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.repo-toolbar .project-search { flex: 1 1 auto; margin-bottom: 0; }
+.repo-refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  cursor: pointer;
+  padding: 5px 10px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+  transition: border-color .15s ease;
+}
+.repo-refresh-btn:hover { border-color: var(--accent); }
 
 /* ---------- Buscador de proyectos ---------- */
 .project-search { margin-bottom: 18px; }
